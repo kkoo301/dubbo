@@ -1,0 +1,30 @@
+debug: false
+dubbo:
+  #<dubbo:registry protocol="zookeeper" address="127.0.0.1:2181" client="curator" register="true" group="test"/>
+  registry:
+    address: zookeeper://127.0.0.1:2181
+    register: false
+    group: test
+    client: curator
+  #<dubbo:application name="demo-provider"/>
+  application:
+    name: demo-consumer
+    qos-enable: true
+  scan:
+    base-packages: com.asiainfo.controller
+
+# Dubbo Health
+## StatusChecker Name defaults (default : "memory", "load" )
+## StatusChecker Name extras (default : empty )
+management:
+  health:
+    dubbo:
+      status:
+        defaults: memory
+        extras: load,threadpool
+# Dubbo Endpoint (default status is disable)
+endpoints:
+  dubbo:
+    enabled: true
+server:
+  port: 9090

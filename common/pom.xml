@@ -17,11 +17,13 @@
 
 
     <dependencies>
-        <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>21.0</version>
-        </dependency>
+
+        <!--<dependency>-->
+        <!--<groupId>org.apache.rocketmq</groupId>-->
+        <!--<artifactId>rocketmq-client</artifactId>-->
+        <!--<version>4.2.0</version>-->
+        <!--</dependency>-->
+
     </dependencies>
 
 </project>
