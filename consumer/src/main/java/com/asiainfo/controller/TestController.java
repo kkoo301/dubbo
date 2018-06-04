@@ -2,6 +2,8 @@ package com.asiainfo.controller;
 
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.asiainfo.service.IDemoService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,22 +17,21 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @EnableAutoConfiguration
 public class TestController {
 
+    private static final Logger logger = LoggerFactory.getLogger(TestController.class);
+
     @Reference(version = "1.0.0")
     private IDemoService demoService;
 
     @RequestMapping(value ="/home", method = RequestMethod.GET)
     @ResponseBody
     public String home(){
-        for(int i = 0 ; i < 10 ; i++){
-            try {
-                String str = demoService.sayHello("kkoo");
+        try {
+            String str = demoService.sayHello("kkoo");
 
-                System.out.println(" Tried " + i + " ====> " + str);
-            }catch (Exception e){
-                System.out.println(" Exception " + e);
-            }
-
+        }catch (Exception e){
+            logger.info(" Exception " + e);
         }
+
         return "你好，Spring Boot";
     }
 }

@@ -4,10 +4,13 @@ import com.alibaba.dubbo.config.annotation.Service;
 import com.asiainfo.entity.Userinfo;
 import com.asiainfo.mapper.UserinfoMapper;
 import com.asiainfo.service.IDemoService;
+import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.baomidou.mybatisplus.plugins.Page;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -24,9 +27,11 @@ public class DemoServiceImpl implements IDemoService {
     @Override
     public String sayHello(String name) {
 
-        Userinfo admin = mapper.findByUsername("test");
+        List<Userinfo> userinfos = mapper.selectPage(new Page<Userinfo>(), new EntityWrapper<>());
+
+        //Userinfo admin = mapper.findByUsername("test");
 
 
-        return name + " say hello" + admin.toString();
+        return name + " say hello";
     }
 }

@@ -1,0 +1,25 @@
+# Created by .ignore support plugin (hsz.mobi)
+#.gitignore
+.idea/compiler.xml
+.idea/encodings.xml
+.idea/libraries/
+.idea/misc.xml
+.idea/modules.xml
+.idea/uiDesigner.xml
+.idea/workspace.xml
+api/api.iml
+api/src/test/
+api/target/
+common/common.iml
+common/src/test/
+common/target/
+consumer/consumer.iml
+consumer/src/test/
+consumer/target/
+dubbo.iml
+provider/provider.iml
+provider/src/test/
+provider/target/
+repository/repository.iml
+repository/src/test/
+repository/target/
