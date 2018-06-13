@@ -2,7 +2,6 @@ package com.asiainfo;
 
 
 import com.alibaba.dubbo.container.Main;
-import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.Banner;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;

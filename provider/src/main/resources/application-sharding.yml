@@ -1,0 +1,60 @@
+sharding:
+  jdbc:
+    datasource:
+      names: ds_master_0,ds_master_1,ds_master_0_slave_0,ds_master_0_slave_1,ds_master_1_slave_0,ds_master_1_slave_1
+      ds_master_0:
+        username: root
+        password: admin
+        driver-class-name: com.mysql.jdbc.Driver
+        type: com.alibaba.druid.pool.DruidDataSource
+        url: jdbc:mysql://localhost:3306/demo_ds_0?characterEncoding=utf8&useSSL=true&serverTimezone=PRC&nullNamePatternMatchesAll=true
+
+      ds_master_0_slave_0:
+        username: root
+        password: admin
+        driver-class-name: com.mysql.jdbc.Driver
+        type: com.alibaba.druid.pool.DruidDataSource
+        url: jdbc:mysql://localhost:3306/demo_ds_0?characterEncoding=utf8&useSSL=true&serverTimezone=PRC&nullNamePatternMatchesAll=true
+
+      ds_master_0_slave_1:
+        username: root
+        password: admin
+        driver-class-name: com.mysql.jdbc.Driver
+        type: com.alibaba.druid.pool.DruidDataSource
+        url: jdbc:mysql://localhost:3306/demo_ds_0?characterEncoding=utf8&useSSL=true&serverTimezone=PRC&nullNamePatternMatchesAll=true
+
+      ds_master_1:
+        username: root
+        password: admin
+        driver-class-name: com.mysql.jdbc.Driver
+        type: com.alibaba.druid.pool.DruidDataSource
+        url: jdbc:mysql://localhost:3306/demo_ds_1?characterEncoding=utf8&useSSL=true&serverTimezone=PRC&nullNamePatternMatchesAll=true
+
+      ds_master_1_slave_0:
+        username: root
+        password: admin
+        driver-class-name: com.mysql.jdbc.Driver
+        type: com.alibaba.druid.pool.DruidDataSource
+        url: jdbc:mysql://localhost:3306/demo_ds_1?characterEncoding=utf8&useSSL=true&serverTimezone=PRC&nullNamePatternMatchesAll=true
+
+      ds_master_1_slave_1:
+        username: root
+        password: admin
+        driver-class-name: com.mysql.jdbc.Driver
+        type: com.alibaba.druid.pool.DruidDataSource
+        url: jdbc:mysql://localhost:3306/demo_ds_1?characterEncoding=utf8&useSSL=true&serverTimezone=PRC&nullNamePatternMatchesAll=true
+
+    config:
+      sharding:
+        master-slave-rules:
+          ds_0:
+            masterDataSourceName: ds_master_0
+            slaveDataSourceNames: ds_master_0_slave_0,ds_master_0_slave_1
+          ds_1:
+            masterDataSourceName: ds_master_1
+            slaveDataSourceNames: ds_master_1_slave_0, ds_master_1_slave_1
+        default-database-strategy:
+          inline:
+            sharding-column: ID
+            algorithm-expression: 'ds_${Long.parseLong(ID.toString()) % 2}'
+        default-data-source-name: ds_master_0

@@ -27,9 +27,15 @@ public class DemoServiceImpl implements IDemoService {
     @Override
     public String sayHello(String name) {
 
-        List<Userinfo> userinfos = mapper.selectPage(new Page<Userinfo>(), new EntityWrapper<>());
+        //List<Userinfo> userinfos = mapper.selectPage(new Page<Userinfo>(), new EntityWrapper<>());
 
         //Userinfo admin = mapper.findByUsername("test");
+
+        for(int i = 0 ; i < 12 ; i++){
+            Userinfo userinfo = new Userinfo();
+            userinfo.setUsername("user " + i);
+            mapper.insert(userinfo);
+        }
 
 
         return name + " say hello";
