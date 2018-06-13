@@ -56,5 +56,9 @@ sharding:
         default-database-strategy:
           inline:
             sharding-column: ID
-            algorithm-expression: 'ds_${Long.parseLong(ID.toString()) % 2}'
+            algorithm-expression: 'ds_${Long.parseLong(id.toString()) % 2}'
         default-data-source-name: ds_master_0
+        default-table-strategy:
+          inline:
+            sharding-column: ID
+            algorithm-expression: 'ds_${Long.parseLong(id.toString()) % 2}'
