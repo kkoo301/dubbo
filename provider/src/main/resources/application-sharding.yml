@@ -46,7 +46,7 @@ sharding:
 
     config:
       sharding:
-        master-slave-rules:
+          master-slave-rules:
           ds_0:
             masterDataSourceName: ds_master_0
             slaveDataSourceNames: ds_master_0_slave_0,ds_master_0_slave_1
