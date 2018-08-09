@@ -64,8 +64,7 @@
         <hutool.version>4.0.5</hutool.version>
         <guava.version>21.0</guava.version>
         <lombok.version>1.18.2</lombok.version>
-        <aspectjweaver.version>1.8.4</aspectjweaver.version>
-        <javassist.version>3.12.1.GA</javassist.version>
+        <quartz.version>2.2.1</quartz.version>
     </properties>
 
     <dependencyManagement>
@@ -280,11 +279,6 @@
                 <artifactId>freemarker</artifactId>
                 <version>${freemarker.version}</version>
             </dependency>
-            <dependency>
-                <groupId>org.javassist</groupId>
-                <artifactId>javassist</artifactId>
-                <version>${javassist.version}</version>
-            </dependency>
             <!-- swagger2 -->
             <dependency>
                 <groupId>io.springfox</groupId>
@@ -333,13 +327,6 @@
                 <artifactId>commons-beanutils</artifactId>
                 <version>${commons-beanutils.version}</version>
             </dependency>
-
-            <dependency>
-                <groupId>org.aspectj</groupId>
-                <artifactId>aspectjweaver</artifactId>
-                <version>${aspectjweaver.version}</version>
-            </dependency>
-
 
         </dependencies>
     </dependencyManagement>

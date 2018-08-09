@@ -10,8 +10,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by admin on 2018-05-17.
@@ -21,10 +19,10 @@ public class DemoServiceImpl implements IDemoService {
 
     private static final Logger logger = LoggerFactory.getLogger(DemoServiceImpl.class);
 
-    @Autowired
-    private OrderRepository orderRepository;
-    @Autowired
-    private OrderItemRepository orderItemRepositorys;
+    //@Autowired(required = true)
+   // private OrderRepository orderRepository;
+    //@Autowired(required = true)
+    //private OrderItemRepository orderItemRepositorys;
 
     @Override
     public String sayHello(String name) {
@@ -50,8 +48,8 @@ public class DemoServiceImpl implements IDemoService {
             item.setOrderId(i);
             item.setUserId(i * 3);
             item.setOrderItemId(i * 7);
-            orderRepository.save(order);
-            orderItemRepositorys.save(item);
+            //orderRepository.save(order);
+            //orderItemRepositorys.save(item);
         }
 
         return name + " say hello";

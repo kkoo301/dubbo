@@ -17,8 +17,9 @@
     <import resource="spring-repository.xml"/>
 
     <!-- 使用annotation 自动注册bean, 并保证@Required、@Autowired的属性被注入 -->
-    <context:component-scan base-package="com.asiainfo.service" use-default-filters="false" scoped-proxy="targetClass">
-        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />
+    <context:component-scan base-package="com.asiainfo" >
+        <context:include-filter type="annotation" expression="com.alibaba.dubbo.config.annotation.Service"/>
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Service"/>
     </context:component-scan>
 
 </beans>
