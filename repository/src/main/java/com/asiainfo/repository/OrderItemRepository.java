@@ -1,10 +1,12 @@
 package com.asiainfo.repository;
 
-import com.asia.core.dao.jpa.BaseDao;
+import com.asiainfo.common.core.dao.jpa.JpaBaseDao;
 import com.asiainfo.entity.OrderItem;
+import org.springframework.stereotype.Repository;
 
 /**
  * Created by admin on 2018-07-27.
  */
-public interface OrderItemRepository extends BaseDao<OrderItem,Long> {
+@Repository
+public interface OrderItemRepository extends JpaBaseDao<OrderItem,Long> {
 }

@@ -15,7 +15,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.asia.core.dao.jpa;
+package com.asiainfo.common.core.dao.jpa;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
@@ -29,6 +29,6 @@ import java.io.Serializable;
  * @see https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#repository-query-keywords
  */
 @NoRepositoryBean
-public interface BaseDao<T, ID extends Serializable> extends JpaRepository<T, ID>, JpaSpecificationExecutor<T> {
+public interface JpaBaseDao<T, ID extends Serializable> extends JpaRepository<T, ID>, JpaSpecificationExecutor<T> {
 
 }
