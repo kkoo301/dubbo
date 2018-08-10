@@ -3,7 +3,7 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:tx="http://www.springframework.org/schema/tx"
        xmlns:context="http://www.springframework.org/schema/context"
-       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:aop="http://www.springframework.org/schema/aop" xmlns:jpa="http://www.springframework.org/schema/data/jpa"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/tx
@@ -11,7 +11,7 @@
         http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context
-        http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd"
+        http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd"
        default-lazy-init="false">
 
     <description>Spring repository config</description>
@@ -44,7 +44,7 @@
     <!-- 实体管理器 -->
     <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
         <property name="dataSource" ref="dataSource" />
-        <property name="packagesToScan" value="com.asiainfo.repository" />
+        <property name="packagesToScan" value="com.asiainfo.entity" />
         <property name="persistenceProvider">
             <bean class="org.hibernate.jpa.HibernatePersistenceProvider" />
         </property>
@@ -74,6 +74,8 @@
 
     <!-- 使用cglib进行动态代理 -->
     <aop:aspectj-autoproxy proxy-target-class="true" />
+
+    <jpa:repositories base-package="com.asiainfo.repository,com.asiainfo.entity" />
 
     <!-- 支持注解方式声明式事务 -->
     <tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true" />

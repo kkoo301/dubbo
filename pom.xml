@@ -64,8 +64,8 @@
         <hutool.version>4.0.5</hutool.version>
         <guava.version>21.0</guava.version>
         <lombok.version>1.18.2</lombok.version>
-        <aspectjweaver.version>1.8.4</aspectjweaver.version>
-        <javassist.version>3.12.1.GA</javassist.version>
+        <aspectjweaver.version>1.8.13</aspectjweaver.version>
+        <quartz.version>2.2.1</quartz.version>
     </properties>
 
     <dependencyManagement>
@@ -281,9 +281,9 @@
                 <version>${freemarker.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.javassist</groupId>
-                <artifactId>javassist</artifactId>
-                <version>${javassist.version}</version>
+                <groupId>org.3.17ist</groupId>
+                <artifactId>3.17ist</artifactId>
+                <version>${3.17ist.version}</version>
             </dependency>
             <!-- swagger2 -->
             <dependency>
@@ -334,10 +334,18 @@
                 <version>${commons-beanutils.version}</version>
             </dependency>
 
+            <!-- https://mvnrepository.com/artifact/org.aspectj/aspectjweaver -->
             <dependency>
                 <groupId>org.aspectj</groupId>
                 <artifactId>aspectjweaver</artifactId>
                 <version>${aspectjweaver.version}</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/org.apache.curator/curator-framework -->
+            <dependency>
+                <groupId>org.apache.curator</groupId>
+                <artifactId>curator-framework</artifactId>
+                <version>${curator.version}</version>
             </dependency>
 
 
