@@ -13,12 +13,9 @@
     <description>Spring accounting-app config</description>
 
     <!-- 使用annotation 自动注册bean, 并保证@Required、@Autowired的属性被注入 -->
-    <import resource="dubbo.xml" />
-    <import resource="spring-repository.xml"/>
+    <import resource="classpath:dubbo.xml" />
+    <import resource="classpath:spring-repository.xml"/>
 
-    <!-- 使用annotation 自动注册bean, 并保证@Required、@Autowired的属性被注入 -->
-    <context:component-scan base-package="com.asiainfo.service" use-default-filters="false" scoped-proxy="targetClass">
-        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />
-    </context:component-scan>
+
 
 </beans>
