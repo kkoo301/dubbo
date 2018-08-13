@@ -32,7 +32,7 @@
         <hibernate-entitymanager.version>5.3.4.Final</hibernate-entitymanager.version>
         <javax.persistence-api.version>2.2</javax.persistence-api.version>
         <mysql.version>5.1.44</mysql.version>
-        <slf4j.version>1.8.0-alpha2</slf4j.version>
+        <slf4j.version>1.7.25</slf4j.version>
         <jackson.version>2.9.1</jackson.version>
         <druid.version>1.1.10</druid.version>
         <httpclient.version>4.5.3</httpclient.version>
@@ -57,13 +57,14 @@
         <!--指定了版本范围，每次会尝试去下载最新版本-->
         <qiniu.version>[7.2.0, 7.2.99]</qiniu.version>
         <elasticsearch.version>6.2.3</elasticsearch.version>
-        <log4j.version>2.9.1</log4j.version>
+        <logback.version>1.2.3</logback.version>
         <shiro.version>1.4.0</shiro.version>
         <json.version>20171018</json.version>
         <mail.version>1.5.0-b01</mail.version>
         <hutool.version>4.0.5</hutool.version>
         <guava.version>21.0</guava.version>
-        <lombok.version>1.18.2</lombok.version>
+        <lombok.version>1.16.18</lombok.version>
+        <aspectjweaver.version>1.8.13</aspectjweaver.version>
         <quartz.version>2.2.1</quartz.version>
     </properties>
 
@@ -126,12 +127,6 @@
                 <version>${junit.version}</version>
                 <scope>test</scope>
             </dependency>
-            <!-- 日志处理 -->
-            <dependency>
-                <groupId>org.slf4j</groupId>
-                <artifactId>slf4j-log4j12</artifactId>
-                <version>${slf4j.version}</version>
-            </dependency>
             <!-- Mybatis -->
             <dependency>
                 <groupId>org.mybatis</groupId>
@@ -190,6 +185,11 @@
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-webmvc</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-web</artifactId>
                 <version>${spring.version}</version>
             </dependency>
             <dependency>
@@ -279,6 +279,11 @@
                 <artifactId>freemarker</artifactId>
                 <version>${freemarker.version}</version>
             </dependency>
+            <dependency>
+                <groupId>org.3.17ist</groupId>
+                <artifactId>3.17ist</artifactId>
+                <version>${3.17ist.version}</version>
+            </dependency>
             <!-- swagger2 -->
             <dependency>
                 <groupId>io.springfox</groupId>
@@ -303,11 +308,23 @@
                 <version>${elasticsearch.version}</version>
             </dependency>
             <!--Log4j 2-->
+            <!-- LOGGING begin -->
             <dependency>
-                <groupId>org.apache.logging.log4j</groupId>
-                <artifactId>log4j-core</artifactId>
-                <version>${log4j.version}</version>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-classic</artifactId>
+                <version>${logback.version}</version>
             </dependency>
+            <dependency>
+                <groupId>org.logback-extensions</groupId>
+                <artifactId>logback-ext-spring</artifactId>
+                <version>${logback.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>jcl-over-slf4j</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
+            <!-- LOGGING end -->
             <!-- guava -->
             <dependency>
                 <groupId>com.google.guava</groupId>
@@ -327,6 +344,21 @@
                 <artifactId>commons-beanutils</artifactId>
                 <version>${commons-beanutils.version}</version>
             </dependency>
+
+            <!-- https://mvnrepository.com/artifact/org.aspectj/aspectjweaver -->
+            <dependency>
+                <groupId>org.aspectj</groupId>
+                <artifactId>aspectjweaver</artifactId>
+                <version>${aspectjweaver.version}</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/org.apache.curator/curator-framework -->
+            <dependency>
+                <groupId>org.apache.curator</groupId>
+                <artifactId>curator-framework</artifactId>
+                <version>${curator.version}</version>
+            </dependency>
+
 
         </dependencies>
     </dependencyManagement>

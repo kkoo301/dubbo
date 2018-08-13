@@ -8,9 +8,8 @@ import com.alibaba.dubbo.container.Main;
 public class ProviderStart {
 
     public static void main(String args[]) {
-
+        //System.setProperty("dubbo.application.logger","slf4j");
         Main.main(args);
-
     }
 
 }
