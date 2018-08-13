@@ -317,7 +317,7 @@
             <dependency>
                 <groupId>org.logback-extensions</groupId>
                 <artifactId>logback-ext-spring</artifactId>
-                <version>${logback.version}</version>
+                <version>0.1.4</version>
             </dependency>
             <dependency>
                 <groupId>org.slf4j</groupId>
