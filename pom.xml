@@ -31,8 +31,8 @@
         <mybatis.paginator.version>1.2.15</mybatis.paginator.version>
         <hibernate-entitymanager.version>5.3.4.Final</hibernate-entitymanager.version>
         <javax.persistence-api.version>2.2</javax.persistence-api.version>
-        <mysql.version>5.1.44</mysql.version>
-        <slf4j.version>1.7.25</slf4j.version>
+        <mysql.version>8.0.12</mysql.version>
+        <slf4j.version>1.8.0-beta2</slf4j.version>
         <jackson.version>2.9.1</jackson.version>
         <druid.version>1.1.10</druid.version>
         <httpclient.version>4.5.3</httpclient.version>
@@ -65,7 +65,7 @@
         <guava.version>21.0</guava.version>
         <lombok.version>1.16.18</lombok.version>
         <aspectjweaver.version>1.8.13</aspectjweaver.version>
-        <quartz.version>2.2.1</quartz.version>
+        <quartz.version>2.3.0</quartz.version>
     </properties>
 
     <dependencyManagement>
