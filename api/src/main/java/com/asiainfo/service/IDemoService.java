@@ -5,6 +5,6 @@ package com.asiainfo.service;
  */
 public interface IDemoService {
 
-    String sayHello(String name);
+    String insertHello(String name);
 
 }

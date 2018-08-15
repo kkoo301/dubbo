@@ -24,8 +24,9 @@ public class TestController {
     @ResponseBody
     public String home(){
         try {
-            String str = demoService.sayHello("kkoo");
 
+            String str = demoService.insertHello("kkoo");
+            int i = 1 / 0 ;
         }catch (Exception e){
             logger.info(" Exception " + e);
         }

@@ -6,9 +6,12 @@ import com.asiainfo.entity.OrderItem;
 import com.asiainfo.repository.OrderItemRepository;
 import com.asiainfo.repository.OrderRepository;
 import com.asiainfo.service.IDemoService;
+import com.google.common.collect.Lists;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.List;
 
 
 /**
@@ -19,27 +22,19 @@ public class DemoServiceImpl implements IDemoService {
 
     private static final Logger logger = LoggerFactory.getLogger(DemoServiceImpl.class);
 
-    //@Autowired(required = true)
-   // private OrderRepository orderRepository;
-    //@Autowired(required = true)
-    //private OrderItemRepository orderItemRepositorys;
+    @Autowired
+    private OrderRepository orderRepository;
+    @Autowired
+    private OrderItemRepository orderItemRepositorys;
 
     @Override
-    public String sayHello(String name) {
-
-        //List<Userinfo> userinfos = mapper.selectPage(new Page<Userinfo>(), new EntityWrapper<>());
-
-        //Userinfo admin = mapper.findByUsername("test");
-
-        //for(int i = 0 ; i < 12 ; i++){
-        //    Userinfo userinfo = new Userinfo();
-        //    userinfo.setUsername("user " + i);
-        //    mapper.insert(userinfo);
-        //}
+    public String insertHello(String name) {
 
         Order order = null;
         OrderItem item = null;
-        for(int i = 0 ; i < 3000 ; i++){
+        List<Order> orderList = Lists.newArrayList();
+        List<OrderItem> orderItems = Lists.newArrayList();
+        for(int i = 1 ; i <= 30 ; i++){
             order = new Order();
             order.setUserId(i * 3);
             order.setStatus("1");
@@ -48,10 +43,11 @@ public class DemoServiceImpl implements IDemoService {
             item.setOrderId(i);
             item.setUserId(i * 3);
             item.setOrderItemId(i * 7);
-            //orderRepository.save(order);
-            //orderItemRepositorys.save(item);
+            orderList.add(order);
+            orderItems.add(item);
         }
-
+        orderRepository.save(orderList);
+        orderItemRepositorys.save(orderItems);
         return name + " say hello";
     }
 }

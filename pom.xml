@@ -275,11 +275,6 @@
                 <version>${activemq.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.freemarker</groupId>
-                <artifactId>freemarker</artifactId>
-                <version>${freemarker.version}</version>
-            </dependency>
-            <dependency>
                 <groupId>org.3.17ist</groupId>
                 <artifactId>3.17ist</artifactId>
                 <version>${3.17ist.version}</version>
