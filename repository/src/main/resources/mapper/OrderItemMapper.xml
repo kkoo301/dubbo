@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.asiainfo.entity.OrderItem">
+
+    <!-- 按日统计登录用户数-->
+    <select id="findOrder" resultType="com.asiainfo.entity.OrderItem">
+        SELECT t.order_item_id AS orderItemId , t.order_id AS orderId, t.user_id AS userId FROM t_order_item t
+    </select>
+
+</mapper>

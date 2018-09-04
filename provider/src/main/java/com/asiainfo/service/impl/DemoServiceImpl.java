@@ -1,6 +1,7 @@
 package com.asiainfo.service.impl;
 
 import com.alibaba.dubbo.config.annotation.Service;
+import com.asiainfo.common.core.dao.mybatis.MyBatisBaseDao;
 import com.asiainfo.entity.Order;
 import com.asiainfo.entity.OrderItem;
 import com.asiainfo.repository.OrderItemRepository;
@@ -10,8 +11,12 @@ import com.google.common.collect.Lists;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 
 import java.util.List;
+import java.util.Map;
 
 
 /**
@@ -26,6 +31,8 @@ public class DemoServiceImpl implements IDemoService {
     private OrderRepository orderRepository;
     @Autowired
     private OrderItemRepository orderItemRepositorys;
+    @Autowired
+    private MyBatisBaseDao myBatisBaseDao;
 
     @Override
     public String insertHello(String name) {
@@ -48,6 +55,31 @@ public class DemoServiceImpl implements IDemoService {
         }
         orderRepository.save(orderList);
         orderItemRepositorys.save(orderItems);
+
+        int i = 1 / 0 ;
+
         return name + " say hello";
+    }
+
+    @Override
+    public Map find() {
+        Pageable pageable = new PageRequest(3,30);
+        Page<OrderItem> page = myBatisBaseDao.findPage("com.asiainfo.entity.OrderItem", "findOrder", null, pageable );
+        System.out.println(page.getContent());
+        System.out.println("findPage : " + page.getContent().size());
+
+        List<OrderItem> findOrder = myBatisBaseDao.findLimitList("com.asiainfo.entity.OrderItem", "findOrder", null, 10);
+        System.out.println(findOrder);
+        System.out.println("findLimitList : " + findOrder.size());
+
+        List<OrderItem> findOrder1 = myBatisBaseDao.findList("com.asiainfo.entity.OrderItem", "findOrder", null);
+        System.out.println(findOrder1);
+        System.out.println("findList : " + findOrder1.size());
+
+        Map<String, OrderItem> map = myBatisBaseDao.findMap("com.asiainfo.entity.OrderItem", "findOrder", null, "orderId", 10);
+        System.out.println(map);
+        System.out.println("findMap : " + map.size());
+
+        return null;
     }
 }

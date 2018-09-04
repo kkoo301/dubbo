@@ -26,7 +26,6 @@ import java.io.Serializable;
 /**
  * @param <T>  实体对象
  * @param <ID> 实体主键类型
- * @see https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#repository-query-keywords
  */
 @NoRepositoryBean
 public interface JpaBaseDao<T, ID extends Serializable> extends JpaRepository<T, ID>, JpaSpecificationExecutor<T> {

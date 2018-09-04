@@ -1,5 +1,6 @@
 package com.asiainfo.common.core.dao.mybatis;
 
+import com.github.pagehelper.PageRowBounds;
 import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.data.domain.Page;
@@ -12,7 +13,7 @@ import java.util.Map;
 /**
  * Created by admin on 2018-08-09.
  */
-public abstract class MyBatisGenerialDaoImpl implements MyBatisBaseDao {
+public class MyBatisGenerialDaoImpl implements MyBatisBaseDao {
 
     private SqlSession sqlSession;
 
@@ -35,11 +36,9 @@ public abstract class MyBatisGenerialDaoImpl implements MyBatisBaseDao {
 
     @Override
     public <E> Page<E> findPage(String namespace, String statementId, Map<String, Object> parameters, Pageable pageable) {
-        RowBounds rowBounds = new RowBounds(Long.valueOf(pageable.getOffset()).intValue(), pageable.getPageSize());
-        List<E> rows = sqlSession.selectList(getSqlName(namespace,statementId),parameters,rowBounds);
-        int total = sqlSession.selectOne(getSqlName(namespace,statementId));
-        Page<E> page = new PageImpl<E>(rows, pageable, total);
-        return page;
+        PageRowBounds rowBounds = new PageRowBounds(pageable.getOffset(), pageable.getPageSize());
+        List<E> rows = sqlSession.selectList(getSqlName(namespace, statementId),parameters,rowBounds);
+        return new PageImpl<E>(rows, pageable, rowBounds.getTotal());
     }
 
     @Override
