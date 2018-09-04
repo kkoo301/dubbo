@@ -1,7 +1,6 @@
 package com.asiainfo.common.core.dao.mybatis;
 
 import com.github.pagehelper.PageRowBounds;
-import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -27,7 +26,7 @@ public class MyBatisGenerialDaoImpl implements MyBatisBaseDao {
     @Override
     public <E> List<E> findLimitList(String namespace, String statementId, Map<String, Object> parameters, Integer top) {
         if (top != null) {
-            RowBounds rowBounds = new RowBounds(0, top);
+            PageRowBounds rowBounds = new PageRowBounds(0, top);
             return sqlSession.selectList(getSqlName(namespace,statementId), parameters, rowBounds);
         } else {
             return sqlSession.selectList(getSqlName(namespace,statementId), parameters);
@@ -44,7 +43,7 @@ public class MyBatisGenerialDaoImpl implements MyBatisBaseDao {
     @Override
     public <V> Map<String, V> findMap(String namespace, String statementId, Map<String, Object> parameters, String mapKey, Integer top) {
         if (top != null) {
-            RowBounds rowBounds = new RowBounds(0, top);
+            PageRowBounds rowBounds = new PageRowBounds(0, top);
             return sqlSession.selectMap(getSqlName(namespace,statementId), parameters, mapKey, rowBounds);
         } else {
             return sqlSession.selectMap(getSqlName(namespace,statementId), parameters, mapKey);

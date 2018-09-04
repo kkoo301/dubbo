@@ -8,8 +8,7 @@ import com.asiainfo.repository.OrderItemRepository;
 import com.asiainfo.repository.OrderRepository;
 import com.asiainfo.service.IDemoService;
 import com.google.common.collect.Lists;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -22,10 +21,9 @@ import java.util.Map;
 /**
  * Created by admin on 2018-05-17.
  */
+@Slf4j
 @Service(version = "1.0.0")
 public class DemoServiceImpl implements IDemoService {
-
-    private static final Logger logger = LoggerFactory.getLogger(DemoServiceImpl.class);
 
     @Autowired
     private OrderRepository orderRepository;
