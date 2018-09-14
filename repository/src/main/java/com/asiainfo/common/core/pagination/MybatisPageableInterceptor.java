@@ -79,7 +79,7 @@ public class MybatisPageableInterceptor implements Interceptor {
 
             // 2. 搞定limit 查询
             // 2.1 获取分页SQL，并完成参数准备
-            String limitSql = dialect.getLimitString(sql, pageRequest.getOffset(), pageRequest.getPageSize());
+            String limitSql = dialect.getLimitString(sql, (int)pageRequest.getOffset(), pageRequest.getPageSize());
 
             queryArgs[ROWBOUNDS_INDEX] = new RowBounds(RowBounds.NO_ROW_OFFSET,RowBounds.NO_ROW_LIMIT);
             queryArgs[MAPPED_STATEMENT_INDEX] = copyFromNewSql(ms, boundSql, limitSql);

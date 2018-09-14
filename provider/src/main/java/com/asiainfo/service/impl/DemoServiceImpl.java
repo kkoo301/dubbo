@@ -51,8 +51,8 @@ public class DemoServiceImpl implements IDemoService {
             orderList.add(order);
             orderItems.add(item);
         }
-        orderRepository.save(orderList);
-        orderItemRepositorys.save(orderItems);
+        orderRepository.saveAll(orderList);
+        orderItemRepositorys.saveAll(orderItems);
 
         int i = 1 / 0 ;
 
