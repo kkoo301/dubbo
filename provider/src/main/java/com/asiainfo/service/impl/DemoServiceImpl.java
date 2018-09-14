@@ -54,14 +54,13 @@ public class DemoServiceImpl implements IDemoService {
         orderRepository.saveAll(orderList);
         orderItemRepositorys.saveAll(orderItems);
 
-        int i = 1 / 0 ;
 
         return name + " say hello";
     }
 
     @Override
     public Map find() {
-        Pageable pageable = new PageRequest(3,30);
+        Pageable pageable = PageRequest.of(3,30);
         Page<OrderItem> page = myBatisBaseDao.findPage("com.asiainfo.entity.OrderItem", "findOrder", null, pageable );
         System.out.println(page.getContent());
         System.out.println("findPage : " + page.getContent().size());
